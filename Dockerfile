@@ -11,3 +11,5 @@ COPY . .
 EXPOSE 3000
 
 CMD ["npm","run","dev"]
+
+HEALTHCHECK CMD curl --fail http://localhost:3000 || exit 1
