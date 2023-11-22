@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  notion-app:
+    build: .
+    container_name: notion-app
+    ports:
+      - '3000:3000'
+    volumes:
+      - .:/app
+    stdin_open: true
+    tty: true
