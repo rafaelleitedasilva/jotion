@@ -1,3 +1,6 @@
+<h4><strong>ATTENTION:</strong> This project was made with the help of a <a target="_blank" href="https://www.youtube.com/watch?v=0OaDyjB9Ib8"> tutorial </a>.
+</h4>
+
 <div align="left" width="900">
 <!-- <img src="https://ci.appveyor.com/api/projects/status/tu0uy49drensdlxe?svg=true" alt="Build status"> -->
 <!-- <img src="http://img.shields.io/github/issues/rafaelleitedasilva/jotion.svg" alt="Issues open"> -->
@@ -5,6 +8,8 @@
 <img src="https://img.shields.io/badge/language-typescript-blue"/> 
 <img src="https://img.shields.io/badge/Status-development-green"/>  
 </div>
+
+
 
 <h1>Documentation 📝 </h1>
 
