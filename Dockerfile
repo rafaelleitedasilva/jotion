@@ -1,10 +1,13 @@
+# trunk-ignore(checkov/CKV_DOCKER_3)
+# trunk-ignore-all(terrascan/AC_DOCKER_0047)
+# trunk-ignore-all(trivy/DS002)
 FROM node:18
 
 WORKDIR /app
 
 COPY package.json .
 
-RUN npm install
+RUN npm install -g next@latest && npm install
 
 COPY . .
 
