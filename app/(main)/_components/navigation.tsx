@@ -90,7 +90,7 @@ export const Navigation = () => {
             sidebarRef.current.style.width = "0";
             navbarRef.current.style.setProperty("width","100%");
             navbarRef.current.style.setProperty("left", "0");
-            setTimeout(()=>setIsCollapsed(false),300);
+            setTimeout(()=>setIsResetting(false),300);
         }
     }
 
