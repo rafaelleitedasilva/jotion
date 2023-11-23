@@ -1,5 +1,6 @@
 "use client";
 
+import { SWRConfig } from 'swr';
 import { ReactNode } from "react";
 import { ConvexReactClient } from "convex/react";
 import { ConvexProviderWithClerk } from "convex/react-clerk";
@@ -14,6 +15,7 @@ export const ConvexClientProvider = ({ children }: { children: ReactNode }) => {
   const { theme } = useTheme();
 
   return (
+    <SWRConfig>
     <ClerkProvider
       localization={ptBR}
       publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY!}
@@ -25,5 +27,6 @@ export const ConvexClientProvider = ({ children }: { children: ReactNode }) => {
         {children}
       </ConvexProviderWithClerk>
     </ClerkProvider>
+    </SWRConfig>
   );
 };
