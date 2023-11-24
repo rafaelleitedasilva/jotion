@@ -4,7 +4,7 @@ import { SWRConfig } from 'swr';
 import { ReactNode } from "react";
 import { ConvexReactClient } from "convex/react";
 import { ConvexProviderWithClerk } from "convex/react-clerk";
-import { ClerkProvider, useAuth } from "@clerk/clerk-react";
+import { ClerkProvider, useAuth } from "@clerk/nextjs";
 import { useTheme } from "next-themes";
 import { ptBR } from "@clerk/localizations";
 import { dark } from "@clerk/themes";
