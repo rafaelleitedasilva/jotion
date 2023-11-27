@@ -4,9 +4,26 @@ import Image from "next/image";
 import { useUser } from "@clerk/nextjs";
 import { PlusCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useMutation } from "convex/react";
+import { api } from "@/convex/_generated/api";
+import { toast } from "sonner";
 
 const DocumentsPage = () => {
-const { user } = useUser();
+  const { user } = useUser();
+  const create = useMutation(api.documents.create);
+
+  const onCreate = () =>{
+    const promise = create({
+      title:"Sem título"
+    });
+
+    toast.promise(promise,{
+      loading: "Criando uma nova nota...",
+      success: "Nova nota criada!",
+      error: "Erro ao tentar criar uma nova nota!"
+    })
+  }
+
   return (
     <div className="h-full flex flex-col items-center justify-center space-y-4">
         <Image src="/empty.png"
@@ -23,9 +40,9 @@ const { user } = useUser();
         <h2 classNametext-lg font-medium>
             Bem-vindo ao {user?.firstName}'s Jotion
         </h2>
-        <Button>
+        <Button onClick={onCreate}>
           <PlusCircle classNameh-4 w-4 mr-2/>
-          Crie uma nota
+          <span className="m-1">Crie uma nota</span>
         </Button>
     </div>
   );

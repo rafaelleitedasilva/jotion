@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "convex": "npx convex dev",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
