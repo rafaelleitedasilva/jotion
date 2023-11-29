@@ -9,7 +9,7 @@ export const archive = mutation({
     const identity = await ctx.auth.getUserIdentity();
 
     if (!identity) {
-      throw new Error("Não Autenticado");
+      throw new Error("Usuário não autenticado!");
     }
 
     const userId = identity.subject;
@@ -17,19 +17,21 @@ export const archive = mutation({
     const existingDocument = await ctx.db.get(args.id);
 
     if (!existingDocument) {
-      throw new Error("Nenhum documento encontrado!");
+      throw new Error("Not found");
     }
 
     if (existingDocument.userId !== userId) {
-      throw new Error("Sem autorização");
+      throw new Error("Não autorizado!");
     }
 
-    const recursiveArchive = async (documetnId: Id<"documents">) => {
+    const recursiveArchive = async (documentId: Id<"documents">) => {
       const children = await ctx.db
         .query("documents")
-        .withIndex("by_user_parent", (q) =>
-          q.eq("userId", userId).eq("parentDocument", documetnId),
-        )
+        .withIndex("by_user_parent", (q) => (
+          q
+            .eq("userId", userId)
+            .eq("parentDocument", documentId)
+        ))
         .collect();
 
       for (const child of children) {
@@ -39,7 +41,7 @@ export const archive = mutation({
 
         await recursiveArchive(child._id);
       }
-    };
+    }
 
     const document = await ctx.db.patch(args.id, {
       isArchived: true,
@@ -48,8 +50,8 @@ export const archive = mutation({
     recursiveArchive(args.id);
 
     return document;
-  },
-});
+  }
+})
 export const getSidebar = query({
   args: {
     parentDocument: v.optional(v.id("documents")),
@@ -75,7 +77,6 @@ export const getSidebar = query({
     return documents;
   },
 });
-
 export const create = mutation({
   args: {
     title: v.string(),
@@ -101,7 +102,6 @@ export const create = mutation({
     return document;
   },
 });
-
 function withIndex(arg0: string, arg1: (q: any) => any) {
   throw new Error("Function not implemented.");
 }
