@@ -14,7 +14,7 @@ const DocumentsPage = () => {
 
   const onCreate = () =>{
     const promise = create({
-      title:"Sem título"
+      title:"Sem Título"
     });
 
     toast.promise(promise,{
@@ -38,7 +38,7 @@ const DocumentsPage = () => {
         alt="Empty"
         className="hidden dark:block"/>
         <h2 classNametext-lg font-medium>
-            Bem-vindo ao {user?.firstName}'s Jotion
+            Bem-vindo ao Jotion de {user?.firstName}
         </h2>
         <Button onClick={onCreate}>
           <PlusCircle classNameh-4 w-4 mr-2/>

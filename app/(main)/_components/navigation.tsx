@@ -11,6 +11,7 @@ import {
     PopoverTrigger,
     PopoverContent
 } from "@/components/ui/popover";
+import { useSearch } from "@/hooks/use-search";
 import { useMutation } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { Item } from "./item";
@@ -20,6 +21,7 @@ import { TrashBox } from "./trash-box";
 
 export const Navigation = () => {
     const pathname = usePathname();
+    const search = useSearch();
     const isMobile = useMediaQuery("(max-width: 768px)");
 
     const create = useMutation(api.documents.create);
@@ -109,7 +111,7 @@ export const Navigation = () => {
     }
 
     const handleCreate = () => {
-        const promise = create({title:"Sem título"});
+        const promise = create({title:"Sem Título"});
 
         toast.promise(promise, {
             loading: "Criando uma nova nota...",
@@ -135,7 +137,7 @@ export const Navigation = () => {
                 label="Pesquisa"
                 icon={Search}
                 isSearch
-                onClick={()=>{}}
+                onClick={search.onOpen}
                 />
                 <Item
                 label="Configurações"
