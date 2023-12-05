@@ -63,8 +63,8 @@ export const Item = ({
         const promise = archive({ id });
 
         toast.promise(promise, {
-            loading: "Movendo para o lixo...",
-            success: "Nota movida para o lixo!",
+            loading: "Movendo para a lixeira...",
+            success: "Nota movida para a lixeira!",
             error: "Falha ao arquivar nota."
         });
     };
@@ -113,7 +113,7 @@ export const Item = ({
             {!!id && (
                 <div
                     role="button"
-                    className="h-full rounded-sm hover:bg-neutral-300 dark:bg-neutral-600 mr-1"
+                    className="h-full rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600 mr-1"
                     onClick={handleExpand}
                 >
                     <ChevronIcon

@@ -1,0 +1,5 @@
+{
+  "repositoryName": "jotion",
+  "adapter": "@slicemachine/adapter-next",
+  "libraries": ["./slices"]
+}

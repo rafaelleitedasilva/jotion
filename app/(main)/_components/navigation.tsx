@@ -6,6 +6,7 @@ import { ElementRef, useEffect, useRef, useState } from "react"
 import { useMediaQuery } from "usehooks-ts";
 import { cn } from "@/lib/utils";
 import { UserItem } from "./user-item";
+import { useSettings } from "@/hooks/use-settings";
 import {
     Popover,
     PopoverTrigger,
@@ -23,6 +24,7 @@ export const Navigation = () => {
     const pathname = usePathname();
     const search = useSearch();
     const isMobile = useMediaQuery("(max-width: 768px)");
+    const settings = useSettings();
 
     const create = useMutation(api.documents.create);
 
@@ -142,7 +144,7 @@ export const Navigation = () => {
                 <Item
                 label="Configurações"
                 icon={Settings}
-                onClick={()=>{}}
+                onClick={settings.onOpen}
                 />
                 <Item onClick={handleCreate} label="Nova Página" icon={PlusIcon}/>
             </div>
@@ -151,7 +153,7 @@ export const Navigation = () => {
                 <Item onClick={handleCreate} icon={Plus} label="Adicionar Página"/>
                     <Popover>
                         <PopoverTrigger className="w-full mt-4">
-                            <Item label="Lixo" icon={Trash}/>
+                            <Item label="Lixeira" icon={Trash}/>
                         </PopoverTrigger>
                         <PopoverContent className="p-0 w-72" side={isMobile ? "bottom" : "right"}>
                             <TrashBox/>
