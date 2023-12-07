@@ -72,7 +72,7 @@ export const Toolbar = ({
             {!!initialData.icon && !preview && (
                 <div className="flex items-center gap-x-2 group/icon pt-6">
                     <IconPicker onChange={onIconSelect}>
-                        <p className="text-6x1 hover:opacity-75 transition">
+                        <p className="text-6xl hover:opacity-75 transition">
                             {initialData.icon}
                         </p>
                     </IconPicker>
@@ -82,7 +82,7 @@ export const Toolbar = ({
                 </div>
             )}
             {!!initialData.icon && preview && (
-                <p className="text-6x1 pt-6">
+                <p className="text-6xl pt-6">
                     {initialData.icon}
                 </p>
             )}
@@ -103,9 +103,9 @@ export const Toolbar = ({
                 )}
             </div>
             {isEditing && !preview ? (
-                <TextareaAutosize ref={inputRef} onBlur={disableInput} onKeyDown={onKeyDown} value={value} onChange={(e) => onInput(e.target.value)} className="text-5x1 bg-transparent font-bold break-words outline-none text-[#3F3F3F] dark:text-[#CFCFCF] resize-none"/>
+                <TextareaAutosize ref={inputRef} onBlur={disableInput} onKeyDown={onKeyDown} value={value} onChange={(e) => onInput(e.target.value)} className="text-5xl bg-transparent font-bold break-words outline-none text-[#3F3F3F] dark:text-[#CFCFCF] resize-none"/>
             ):(
-                <div onClick={enableInput} className="pb-[11.5px] text-5x1 font-bold break-words outline-none text-[#3F3F3F] dark:text-[#CFCFCF]">
+                <div onClick={enableInput} className="pb-[11.5px] text-5xl font-bold break-words outline-none text-[#3F3F3F] dark:text-[#CFCFCF]">
                     {initialData.title}
                 </div>
             )}
