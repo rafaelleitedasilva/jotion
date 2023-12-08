@@ -5,6 +5,11 @@ const nextConfig = {
     defaultLocale: "pt-BR",
     localeDetection: true,
   },
+  images: {
+    domains: [
+      "files.edgestore.dev"
+    ]
+  }
 };
 
 module.exports = nextConfig;
