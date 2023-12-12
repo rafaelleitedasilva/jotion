@@ -6,16 +6,18 @@ import { PlusCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useMutation } from "convex/react";
 import { api } from "@/convex/_generated/api";
+import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
 const DocumentsPage = () => {
+  const router = useRouter();
   const { user } = useUser();
   const create = useMutation(api.documents.create);
 
   const onCreate = () =>{
     const promise = create({
       title:"Sem Título"
-    });
+    }).then((documentId)=>router.push(`/documents/${documentId}`))
 
     toast.promise(promise,{
       loading: "Criando uma nova nota...",

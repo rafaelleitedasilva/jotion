@@ -1,7 +1,7 @@
 "use client"
 
 import { ChevronsLeft, MenuIcon, Plus, PlusCircle, PlusIcon, Search, Settings, Trash } from "lucide-react";
-import { useParams, usePathname } from "next/navigation";
+import { useParams, usePathname, useRouter } from "next/navigation";
 import { ElementRef, useEffect, useRef, useState } from "react"
 import { useMediaQuery } from "usehooks-ts";
 import { cn } from "@/lib/utils";
@@ -22,6 +22,7 @@ import { TrashBox } from "./trash-box";
 import { Navbar } from "./navbar";
 
 export const Navigation = () => {
+    const router = useRouter();
     const pathname = usePathname();
     const search = useSearch();
     const isMobile = useMediaQuery("(max-width: 768px)");
@@ -115,7 +116,7 @@ export const Navigation = () => {
     }
 
     const handleCreate = () => {
-        const promise = create({title:"Sem Título"});
+        const promise = create({title:"Sem Título"}).then((documentId)=>router.push(`/documents/${documentId}`));
 
         toast.promise(promise, {
             loading: "Criando uma nova nota...",

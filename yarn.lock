@@ -664,7 +664,7 @@
     "@babel/helper-validator-identifier" "^7.22.20"
     "to-fast-properties" "^2.0.0"
 
-"@blocknote/core@^0.9.4", "@blocknote/core@^0.9.6":
+"@blocknote/core@^0.9.6":
   "integrity" "sha512-L0T8L+akKPI4tJh9n18Cq0gR5WxCXoVPfPtA4gfFu+Yu5mtLfY4Rts5bKNzbFFFahx0Ns3VLjLHkr4h+YeT5Dw=="
   "resolved" "https://registry.npmjs.org/@blocknote/core/-/core-0.9.6.tgz"
   "version" "0.9.6"
@@ -708,7 +708,7 @@
     "y-protocols" "^1.0.5"
     "yjs" "^13.6.1"
 
-"@blocknote/react@^0.9.4":
+"@blocknote/react@^0.9.6":
   "integrity" "sha512-xybLu1vSiIVXe6nginmC/3MKfjFVAycGII2/1kythmyxM1YgLBg4JWD6i8ABrniRlXkQ9tjpjrlWbdP4Ld2/zg=="
   "resolved" "https://registry.npmjs.org/@blocknote/react/-/react-0.9.6.tgz"
   "version" "0.9.6"

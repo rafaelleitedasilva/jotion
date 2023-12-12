@@ -10,8 +10,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@blocknote/core": "^0.9.4",
-    "@blocknote/react": "^0.9.4",
+    "@blocknote/core": "^0.9.6",
+    "@blocknote/react": "^0.9.6",
     "@clerk/clerk-react": "^4.26.3",
     "@clerk/localizations": "^1.26.10",
     "@clerk/nextjs": "^4.27.2",

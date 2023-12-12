@@ -5,9 +5,9 @@ import { useMutation } from "convex/react";
 import { useParams } from "next/navigation";
 
 import {
-  Dialog,
-  DialogContent,
-  DialogHeader
+    Dialog,
+    DialogContent,
+    DialogHeader
 } from "@/components/ui/dialog";
 import { useCoverImage } from "@/hooks/use-cover-image";
 import { SingleImageDropzone } from "@/components/single-image-dropzone";
@@ -21,22 +21,25 @@ export const CoverImageModal = () => {
     const coverImage = useCoverImage();
     const { edgestore } = useEdgeStore();
 
-    const [file, setFile ] = useState<File>();
-    const [isSubmitting, setIsSuubmitting] = useState(false);
+    const [file, setFile] = useState<File>();
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const onClose = () => {
         setFile(undefined);
-        setIsSuubmitting(false);
+        setIsSubmitting(false);
         coverImage.onClose();
     }
 
-    const onChange = async (file? : File) => {
-        if(file){
-            setIsSuubmitting(true);
+    const onChange = async (file?: File) => {
+        if (file) {
+            setIsSubmitting(true);
             setFile(file);
 
             const res = await edgestore.publicFiles.upload({
-                file
+                file,
+                options: {
+                    replaceTargetUrl: coverImage.url
+                }
             });
 
             await update({
@@ -48,19 +51,17 @@ export const CoverImageModal = () => {
         }
     }
 
-    return(
+    return (
         <Dialog open={coverImage.isOpen} onOpenChange={coverImage.onClose}>
             <DialogContent>
                 <DialogHeader>
                     <h2 className="text-center text-lg font-semibold">
-                    Imagem de Fundo</h2>
-                    </DialogHeader>
-                    <SingleImageDropzone className="w-full outline-none"
-                    disabled={isSubmitting} 
-                    value={file} 
-                    onChange={onChange}>
-
-                    </SingleImageDropzone>
+                        Imagem de Fundo</h2>
+                </DialogHeader>
+                <SingleImageDropzone className="w-full outline-none"
+                    disabled={isSubmitting}
+                    value={file}
+                    onChange={onChange} />
             </DialogContent>
         </Dialog>
     )
