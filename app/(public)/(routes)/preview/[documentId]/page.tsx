@@ -51,15 +51,16 @@ const DocumentIdPage = ({
     }
 
     if (document === null) {
-        return <div>Não Encontrado!</div>
+        return <div>Não Encontrado.</div>
     }
 
     return (
         <div className="pb-40">
-            <Cover url={document.coverImage} />
-            <div className="md:max-w-3xl lg:max-w-4xl mx-auto z-[999999]">
-                <Toolbar initialData={document} />
+            <Cover preview url={document.coverImage} />
+            <div className="md:max-w-3xl lg:max-w-4xl mx-auto">
+                <Toolbar preview initialData={document} />
                 <Editor
+                    editable={false}
                     onChange={onChange}
                     initialContent={document.content}
                 />
@@ -68,4 +69,4 @@ const DocumentIdPage = ({
     );
 }
 
-export default DocumentIdPage;
+export default DocumentIdPage

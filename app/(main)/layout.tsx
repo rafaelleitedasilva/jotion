@@ -11,6 +11,12 @@ import { SearchCommand } from "@/components/search-command";
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
     const { isAuthenticated, isLoading } = useConvexAuth();
+    const router = useRouter();
+    useEffect(() => {
+        if (!isLoading && !isAuthenticated) {
+            router.push("/");
+        }
+    }, [isLoading, isAuthenticated, router]);
 
     if (isLoading) {
         return (
@@ -19,14 +25,6 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
             </div>
         )
     }
-
-    const router = useRouter();
-
-    useEffect(() => {
-        if (!isLoading && !isAuthenticated) {
-            router.push("/");
-        }
-    }, [isLoading, isAuthenticated, router]);
 
     return (
         <div className="h-full flex dark:bg-[#1F1F1F]">

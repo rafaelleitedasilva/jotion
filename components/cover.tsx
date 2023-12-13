@@ -77,10 +77,10 @@ export const Cover = ({
             )}
         </div>
     )
+}
 
-    Cover.Skeleton = function CoverSkeleton(){
-        return(
-            <Skeleton className="w-full h-[12vh]"/>
-        )
-    }
+Cover.Skeleton = function CoverSkeleton(){
+    return(
+        <Skeleton className="w-full h-[12vh]"/>
+    )
 }
